@@ -1,5 +1,6 @@
 package springscrath.core.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,10 +8,18 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.springframework.context.annotation.Bean;
 
 @Entity
 @Table(name = "users")
+
 public class User {
+
+    public interface WithoutName {
+    };
+
+    public interface WithName extends WithoutName {
+    };
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -36,6 +45,12 @@ public class User {
         this.name = name;
     }
 
+    public User(String email, String name, long id) {
+        this.email = email;
+        this.name = name;
+        this.id = id;
+    }
+
     public long getId() {
         return id;
     }
@@ -44,6 +59,7 @@ public class User {
         this.id = value;
     }
 
+    @JsonView(WithoutName.class)
     public String getEmail() {
         return email;
     }
@@ -52,6 +68,7 @@ public class User {
         this.email = value;
     }
 
+    @JsonView(WithName.class)
     public String getName() {
         return name;
     }

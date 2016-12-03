@@ -9,6 +9,7 @@ package springscrath.core.controllers;
  *
  * @author adiel
  */
+import com.fasterxml.jackson.annotation.JsonView;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -39,6 +40,12 @@ public class UserRestController {
             return new ResponseEntity<List<User>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
         }
         return new ResponseEntity<List<User>>(users, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/samplebinding", method = RequestMethod.GET)
+    @JsonView(User.WithoutName.class)
+    public User getUser() {
+        return new User("jesus@gmail.com", "eric");
     }
 
 }

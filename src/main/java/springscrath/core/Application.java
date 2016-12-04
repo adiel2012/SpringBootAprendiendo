@@ -11,7 +11,10 @@ package springscrath.core;
  */
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+@EnableJpaRepositories("springscrath.model.repositories")
+//@EntityScan("com...jpa")
 @SpringBootApplication
 public class Application {
 

@@ -25,17 +25,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 import springscrath.core.model.entities.User;
+import springscrath.model.repositories.UserRepository;
 
 @RestController
 @RequestMapping(value = "/userapi/")
 public class UserRestController {
+    
+    @Autowired
+    UserRepository repo;
 
     //-------------------Retrieve All Users--------------------------------------------------------
     @RequestMapping(value = "/user/", method = RequestMethod.GET)
     public ResponseEntity<List<User>> listAllUsers() {
         List<User> users = new LinkedList<>();
-        users.add(new User("adiel2008@gmail.com", "adiel"));
-        users.add(new User("raul@gmail.com", "emi"));
+        for (User user : repo.findAll()) {
+            users.add(user);
+        }
+        
+//        users.add(new User("adiel2008@gmail.com", "adiel"));
+//        users.add(new User("raul@gmail.com", "emi"));
         if (users.isEmpty()) {
             return new ResponseEntity<List<User>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
         }

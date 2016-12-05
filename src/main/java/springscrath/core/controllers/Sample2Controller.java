@@ -37,7 +37,7 @@ public class Sample2Controller {
 
         return "redirect:/sample2/resultado";
     }
-    
+
     @RequestMapping(value = "/resultado", method = RequestMethod.GET)
     public String resultado(PersonForm personForm) {
         return "results";

@@ -30,7 +30,7 @@ import springscrath.model.repositories.UserRepository;
 @RestController
 @RequestMapping(value = "/userapi/")
 public class UserRestController {
-    
+
     @Autowired
     UserRepository repo;
 
@@ -41,7 +41,7 @@ public class UserRestController {
         for (User user : repo.findAll()) {
             users.add(user);
         }
-        
+
 //        users.add(new User("adiel2008@gmail.com", "adiel"));
 //        users.add(new User("raul@gmail.com", "emi"));
         if (users.isEmpty()) {

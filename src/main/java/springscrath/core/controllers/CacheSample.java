@@ -48,9 +48,8 @@ public class CacheSample {
     public int ejemplono() {
         return ++contador;
     }
-    
-    //   https://www.youtube.com/watch?v=g4h268Hx0AU&list=PLGDwUiT1wr6-Fn3N2oqJpTdhGjFHnIIKY&index=7
 
+    //   https://www.youtube.com/watch?v=g4h268Hx0AU&list=PLGDwUiT1wr6-Fn3N2oqJpTdhGjFHnIIKY&index=7
     @CacheEvict("greetings")
     @RequestMapping(value = "/limpiar", method = RequestMethod.GET)
     @JsonView(int.class)

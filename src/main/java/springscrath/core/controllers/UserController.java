@@ -26,7 +26,7 @@ import springscrath.core.model.entities.User;
  * @author adiel
  */
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
 
 //    @Autowired
@@ -41,7 +41,7 @@ public class UserController {
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(ModelMap model) {
         model.addAttribute("model", users);
-        return "/user/userlist";
+        return "user/userlist";
     }
 
     /* @RequestMapping(value = "/list", method = RequestMethod.GET)

@@ -9,22 +9,22 @@
     <artifactId>miejemploid</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>miejemploooo</name>
+    <name>AprendiendoSpringBoot</name>
     <description>Use MySQL in Spring Boot web application with Hibernate</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.4.2.RELEASE</version>
+        <version>1.4.3.RELEASE</version>
         <relativePath />
     </parent>
 
     <dependencies>
         
-        <dependency>
+  <!--      <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
+        </dependency>    -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
@@ -112,7 +112,33 @@
             <artifactId>guava</artifactId>
             <version>18.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-test</artifactId>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
+        
+        
+        
+        
+        <!--  http://localhost:8080/autoconfig
+        http://localhost:8080/mappings
+        http://localhost:8080/beans
+        http://localhost:8080/configprops
+        http://localhost:8080/env
+        http://localhost:8080/info
+        http://localhost:8080/dump
+        http://localhost:8080/health
+        http://localhost:8080/metrics
+        http://localhost:8080/trace   -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        
+        
+        
     </dependencies>
 
     <properties>
@@ -131,6 +157,10 @@
             <id>org.jboss.repository.releases</id>
             <name>JBoss Maven Release Repository</name>
             <url>https://repository.jboss.org/nexus/content/repositories/releases</url>
+        </repository>
+        <repository>
+            <id>forplay-legacy</id>
+            <url>http://forplay.googlecode.com/svn/mavenrepo</url>
         </repository>
     </repositories>
 

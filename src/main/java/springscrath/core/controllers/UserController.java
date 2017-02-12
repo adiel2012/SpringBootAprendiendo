@@ -70,14 +70,22 @@ public class UserController {
     @RequestMapping(value = "/docreate", method = RequestMethod.POST)
     public ModelAndView docreate(@ModelAttribute("User") @Valid User user, BindingResult result) {
         System.out.println(user.getEmail());
+        ModelAndView mv;
+        
+        boolean f = result.hasFieldErrors("email");
 
         if (result.hasErrors()) {
             for (FieldError fieldError : result.getFieldErrors()) {
                 System.out.println(fieldError.getField() + "  " + fieldError.getDefaultMessage());
             }
-            return new ModelAndView("/user/createform", "model", user);
+            mv = new ModelAndView("/user/createform", "model", user);
+            mv.addObject("bindingresults", result);
+            
+        } else {
+            mv = new ModelAndView("redirect:/user/list");
         }
-        return new ModelAndView("redirect:/user/list");
+
+        return mv;
     }
 
     /* 

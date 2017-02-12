@@ -12,17 +12,37 @@
     <body>
 
         <h2>CreateFFFFFFFFFFFFF</h2>
+
+        <hr>
+
+
+
         <form:form method="POST" action="/users/docreate" modelAttribute="model">
             <table>
                 <tr>
                     <td><form:label path="name">Name</form:label></td>
                     <td><form:input path="name" /></td>
-                    <td align="left"><form:errors path="name" cssClass="error"/></td>
+                    <td align="left"><c:if test="${bindingresults.hasFieldErrors('name')}">
+                            <c:forEach items="${bindingresults.getFieldErrors('name')}" var="errorMessage">
+                                <div id="errors" class="errors">
+                                    <c:out value="${errorMessage.defaultMessage}" />
+                                </div>
+                            </c:forEach>
+                        </c:if></td>
                 </tr>
                 <tr>
                     <td><form:label path="email">Email</form:label></td>
                     <td><form:input path="email" /><form:errors path="email"/></td>
-                    <td align="left"><form:errors path="email" cssClass="error"/></td>
+                    <td align="left">
+                        <c:if test="${bindingresults.hasFieldErrors('email')}">
+                            <c:forEach items="${bindingresults.getFieldErrors('email')}" var="errorMessage">
+                                <div id="errors" class="errors">
+                                    <c:out value="${errorMessage.defaultMessage}" />
+                                </div>
+                            </c:forEach>
+                        </c:if>
+                    </td>
+
 
                 </tr>   
                 <tr>

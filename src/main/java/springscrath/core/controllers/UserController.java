@@ -64,7 +64,7 @@ public class UserController {
     }*/
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public ModelAndView add() {
-        return new ModelAndView("/user/createform", "command", new User());
+        return new ModelAndView("/user/createform", "model", new User());
     }
 
     @RequestMapping(value = "/docreate", method = RequestMethod.POST)
@@ -75,7 +75,7 @@ public class UserController {
             for (FieldError fieldError : result.getFieldErrors()) {
                 System.out.println(fieldError.getField() + "  " + fieldError.getDefaultMessage());
             }
-            return new ModelAndView("/user/createform", "command", user);
+            return new ModelAndView("/user/createform", "model", user);
         }
         return new ModelAndView("redirect:/user/list");
     }

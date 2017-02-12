@@ -11,8 +11,8 @@
     </head>
     <body>
 
-        <h2>Create</h2>
-        <form:form method="POST" action="/user/docreate" modelAttribute="User">
+        <h2>CreateFFFFFFFFFFFFF</h2>
+        <form:form method="POST" action="/users/docreate" modelAttribute="model">
             <table>
                 <tr>
                     <td><form:label path="name">Name</form:label></td>
@@ -34,7 +34,7 @@
         </form:form>
 
 
-        <spring:hasBindErrors name="command">
+        <spring:hasBindErrors name="model">
             <c:forEach var="error" items="${errors.allErrors}">
                 <b><spring:message message="${error}" /></b>
                 <br />
